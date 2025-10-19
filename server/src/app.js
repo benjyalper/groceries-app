@@ -85,7 +85,8 @@ app.delete('/api/list/:id', async (req, res) => {
 
 /** -------- סטטי: נגיש את ה-React build דרך השרת -------- **/
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-const clientDist = path.join(__dirname, '../../client/dist');
+const clientDist = path.join(__dirname, '../client-dist');
+
 app.use(express.static(clientDist));
 app.get('*', (req, res) => {
     res.sendFile(path.join(clientDist, 'index.html'));
